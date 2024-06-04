@@ -22,7 +22,7 @@
             >
               1
             </p>
-          <img class="w-full h-full"  :src="atualFishType" :alt="'Peixe' + props.color">
+          <img class="w-full h-full rotate-180 scale-[-1]"  :src="atualFishType" :alt="'Peixe' + props.color">
         </div>
       </figure>
     </div>
@@ -136,4 +136,5 @@ watch(()=>props.isRevealed, ()=>{
 .flip-container.is-flipped .flip-card-back {
   transform: rotateY(360deg);
 }
+
 </style>
