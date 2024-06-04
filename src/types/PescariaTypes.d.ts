@@ -1,14 +1,26 @@
-declare global {
-  type FishColor = 
-  | 'laranja'
-  | 'rosa'
-
-  interface Fish {
-    color: FishColor,
-    coordinates: string,
-    isBurried: boolean,
-    isRevealed: boolean,
-  }
+interface FishColor {
+  'laranja': string;
+  'rosa': string;
+  'salmao': string;
+  'verde': string;
+  'azul': string;
+  'amarelo': string;
+  'ciano': string;
+  'lilas': string;
 }
 
-export { };
+
+
+interface Coordinates {
+  Buried: string;
+  Revealed: string;
+}
+
+interface Fish {
+  color?: keyof FishColor,
+  coordinates?: Coordinates,
+  isRevealed?: boolean,
+  fishSize?: 'sm' | 'lg',
+}
+
+export { Fish, FishColor }
