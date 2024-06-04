@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html{
+    @apply bg-[url('/background.png')] bg-center bg-cover bg-fixed;
+  }
+}
