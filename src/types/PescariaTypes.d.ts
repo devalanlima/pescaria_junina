@@ -21,6 +21,7 @@ interface Fish {
   coordinates?: Coordinates,
   isRevealed?: boolean,
   fishSize?: 'sm' | 'lg',
+  fishNumber?: number,
 }
 
 export { Fish, FishColor }
