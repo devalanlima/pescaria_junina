@@ -16,11 +16,8 @@
         <img class="flip-card-front transition-all duration-1000 ease-in-out absolute left-0 top-0" :src="atualFishType" :alt="'Peixe' + props.color">
         <!-- Back Side Of Card -->
         <div class="flip-card-back transition-all duration-1000 ease-in-out absolute left-0 top-0 grid place-items-center">
-            <p
-            class="absolute bg-white text-black rounded-full grid place-items-center bg-opacity-50"
-            :class="atualSize.numberSize"
-            >
-              1
+            <p class="absolute rounded-full grid place-items-center bg-white" :class="atualSize.numberSize">
+              {{ props.fishNumber }}
             </p>
           <img class="w-full h-full rotate-180 scale-[-1]"  :src="atualFishType" :alt="'Peixe' + props.color">
         </div>
@@ -48,7 +45,7 @@ const atualSize = computed<{
     default:
       return {
         fishSize: 'w-[240px] h-[500px]',
-        numberSize: 'text-7xl w-[100px] h-[100px] bottom-[190px]'
+        numberSize: 'top-[45%] z-10 w-[80px] h-[80px] text-6xl'
       }
   }
 })
@@ -136,5 +133,4 @@ watch(()=>props.isRevealed, ()=>{
 .flip-container.is-flipped .flip-card-back {
   transform: rotateY(360deg);
 }
-
 </style>
