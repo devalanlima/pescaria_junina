@@ -6,8 +6,8 @@
   class="relative"
   :class="pressed && 'animate-bounce'"
   >
-    <div class="w-[5px] h-[1000px] bg-black/75 absolute left-5 -z-10 bottom-4"></div>
-    <div class="w-[5px] h-[1000px] bg-black/75 absolute right-8 -z-10 bottom-4"></div>
+    <AtomsString class="absolute bottom-10 left-3 -z-10  w-6"/>
+    <AtomsString class="absolute bottom-10 right-6 -z-10  w-6 rotate-180"/>
     <img src="/startBtn.png" alt="start">
   </div>
   </button>
@@ -15,6 +15,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import AtomsString from "./AtomsString.vue";
 
 const emit = defineEmits(['@click'])
 
