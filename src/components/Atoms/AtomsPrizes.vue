@@ -39,9 +39,9 @@ const lastPrize = computed(() => showprizes.value[showprizes.value.length + inde
 
 const attPrizes = () => {
   storeArr.prizes.map((prize): void => {
-    if (!prize.revealed) {
+    if (prize.revealed === false) {
       storeArr.fishs.map((fish): void => {
-        if (fish.fishNumber === prize.prizeNumber && fish.revealed) {
+        if (fish.fishNumber === prize.prizeNumber && fish.revealed !== false) {
           prize.revealed = fish.revealed;
           showprizes.value.push(prize)
         }
