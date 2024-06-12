@@ -98,7 +98,7 @@ export const useStoreArr = defineStore('storeArr', () => {
         fishSize: 'sm'
       },
       {
-        color: 'lilas',
+        color: 'ciano',
         coordinates: {
           Buried: 'left-[670px] bottom-[220px] z-[21]',
           Revealed: 'left-[670px] bottom-[220px] absolute z-50 translate-x-[-250px] translate-y-[-112px]'
@@ -118,7 +118,7 @@ export const useStoreArr = defineStore('storeArr', () => {
         fishSize: 'sm'
       },
       {
-        color: 'lilas',
+        color: 'ciano',
         coordinates: {
           Buried: 'left-[350px] bottom-[150px] z-[22]',
           Revealed: 'left-[350px] bottom-[150px] absolute z-50 translate-x-[70px] translate-y-[-182px]'
