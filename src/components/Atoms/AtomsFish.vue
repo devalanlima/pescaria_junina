@@ -4,7 +4,7 @@
   :class="atualSize.fishSize"
   >
     <!-- Image Container -->
-    <div :class="props.isRevealed ? 'h-[130px]' : 'h-[130px] overflow-hidden'">
+    <div :class="props.revealed ? 'h-[130px]' : 'h-[130px] overflow-hidden'">
       <figure
         ref="flipContainer"
         @mouseleave="resetRotation"
@@ -30,30 +30,20 @@
 import { computed, ref, watch } from 'vue';
 import type { Fish, FishColor } from '@/types/PescariaTypes';
 
-const atualSize = computed<{
-  fishSize: string;
-  numberSize: string;
-}>(()=>{
-  switch (props.fishSize) {
+const fishSizes: { [key in NonNullable<Fish['fishSize']>]: { fishSize: string, numberSize: string }} = {
+    sm: {
+      fishSize: 'w-[85px] h-[180px]',
+      numberSize: 'text-2xl w-[30px] h-[30px] bottom-[50px]'
+    },
+    lg: {
+      fishSize: 'w-[240px] h-[500px]',
+      numberSize: 'top-[45%] z-10 w-[80px] h-[80px] text-6xl'
+    }
+}
 
-    case 'sm':
-      return {
-        fishSize: 'w-[85px] h-[180px]',
-        numberSize: 'text-2xl w-[30px] h-[30px] bottom-[50px]'
-      }
-  
-    default:
-      return {
-        fishSize: 'w-[240px] h-[500px]',
-        numberSize: 'top-[45%] z-10 w-[80px] h-[80px] text-6xl'
-      }
-  }
-})
+const atualSize = computed(()=> props.fishSize !== undefined ? fishSizes[props.fishSize] : fishSizes['sm'])
 
-const props = withDefaults(defineProps<Fish>(), {
-  color: 'laranja',
-  fishSize: 'lg',
-})
+const props = defineProps<Fish>();
 
 const fishImagePaths: FishColor = {
   'amarelo': '/peixe_amarelo.png',
@@ -65,12 +55,11 @@ const fishImagePaths: FishColor = {
   'salmao': '/peixe_salmao.png',
   'verde': '/peixe_verde.png',
 }
-const atualFishType = computed(()=> fishImagePaths[props.color]);
+const atualFishType = computed(()=> props.color !== undefined ? fishImagePaths[props.color] : fishImagePaths['laranja']);
 
 // flip card 
 
 const flipContainer = ref<HTMLElement | null>(null);
-const isFlipped = ref(false);
 
 
 // Resetting The Rotation Back To Original State
@@ -85,19 +74,18 @@ const resetRotation = () => {
 
 const handleFlip = () => {
   if (flipContainer.value !== null) {
-    if (isFlipped.value) {
-      flipContainer.value.classList.remove("is-flipped");
-      isFlipped.value = false;
-    } else {
+    if (props.revealed) {
       flipContainer.value.classList.add("is-flipped");
-      isFlipped.value = true;
+    } else {
+      flipContainer.value.classList.remove("is-flipped");
     }
   }
 };
 
-watch(()=>props.isRevealed, ()=>{
-  handleFlip();  
+watch(()=>props.revealed, ()=>{
+  handleFlip();
 })
+
 
 </script>
 
