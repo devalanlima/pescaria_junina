@@ -9,7 +9,7 @@
       :fish-size="props.fishSize" 
       :color="props.color" 
       :fish-number="props.fishNumber" 
-      :is-revealed="props.isRevealed" 
+      :revealed="props.revealed" 
       />
     </div>
   </div>
@@ -27,7 +27,3 @@ isBurried: boolean;
 const props = defineProps<Props>();
 
 </script>
-
-<style scoped>
-
-</style>
