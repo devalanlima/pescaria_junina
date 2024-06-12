@@ -9,19 +9,24 @@ interface FishColor {
   'lilas': string;
 }
 
-
-
 interface Coordinates {
   Buried: string;
   Revealed: string;
 }
 
 interface Fish {
-  color?: keyof FishColor,
+  color: keyof FishColor,
   coordinates?: Coordinates,
-  isRevealed?: boolean,
-  fishSize?: 'sm' | 'lg',
-  fishNumber?: number,
+  revealed: boolean | number,
+  fishSize: 'sm' | 'lg',
+  fishNumber: number,
 }
 
-export { Fish, FishColor }
+interface Prizes {
+  prizeNumber: number,
+  title: string,
+  image: string
+  revealed: boolean | number,
+}
+
+export { Fish, FishColor, Prizes }
