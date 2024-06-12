@@ -9,8 +9,7 @@
         ref="flipContainer"
         @mouseleave="resetRotation"
         tabindex="0"
-        class="flip-container relative cursor-pointer rounded-3xl h-[130px]"
-      
+        class="relative cursor-pointer rounded-3xl h-[130px] flip-container transition-transform duration-500 ease-in-out"
       >
         <!-- Front Side Of Card -->
         <img class="flip-card-front transition-all duration-1000 ease-in-out absolute left-0 top-0" :src="atualFishType" :alt="'Peixe' + props.color">
@@ -95,7 +94,6 @@ watch(()=>props.revealed, ()=>{
 .flip-container {
   perspective: 1800px;
   transform-style: preserve-3d;
-  transition: transform 0.5s ease;
 }
 
 /* Hiding The Back Of Card */
