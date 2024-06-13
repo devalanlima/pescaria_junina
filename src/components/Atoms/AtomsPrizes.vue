@@ -1,6 +1,6 @@
 <template>
   <div v-if="showprizes.length !== 0" class="grid place-items-center">
-    <p class="font-sniglet text-5xl text-white text-shadow p-2">{{ lastPrize.title }}</p>
+    <p class="font-sniglet text-5xl text-white text-shadow p-2">{{ lastPrize.message }}</p>
     <img :src="lastPrize.image" :alt="lastPrize.title" class="h-[200px]">
   </div>
 </template>
