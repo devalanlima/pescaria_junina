@@ -25,7 +25,8 @@ interface Fish {
 interface Prizes {
   prizeNumber: number,
   title: string,
-  image: string
+  message: string,
+  image: string,
   revealed: boolean | number,
 }
 
